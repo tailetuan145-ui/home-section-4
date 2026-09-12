@@ -1,1 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    SAFE SCHOOL - Recognize School Violence
+  </title>
+
+
+  <style>
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+
+      width: 100%;
+
+      overflow-x: hidden;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background:
+        #ffffff;
+
+      color:
+        #10233f;
+    }
+
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+
+    a {
+      color: inherit;
+    }
+
+
+
+    /* =====================================================
+       SECTION 4
+    ===================================================== */
+
+    .violence-section {
+      position: relative;
+
+      width: 100%;
+
+      padding:
+        86px 0 92px;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          180deg,
+          #eef9fb 0%,
+          #f7fcfd 72%,
+          #ffffff 100%
+        );
+    }
+
+
+
+    /* decorative soft circles */
+
+    .violence-section::before {
+      content: "";
+
+      position: absolute;
+
+      width: 260px;
+      height: 260px;
+
+      left: -120px;
+      top: 90px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(15, 163, 163, .08);
+
+      pointer-events: none;
+    }
+
+
+    .violence-section::after {
+      content: "";
+
+      position: absolute;
+
+      width: 240px;
+      height: 240px;
+
+      right: -120px;
+      bottom: 30px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(126, 214, 194, .10);
+
+      pointer-events: none;
+    }
+
+
+
+    /* =====================================================
+       CONTAINER
+    ===================================================== */
+
+    .violence-container {
+      position: relative;
+
+      z-index: 2;
+
+      width:
+        min(1450px, 93%);
+
+      margin:
+        0 auto;
+    }
+
+
+
+    /* =====================================================
+       HEADING
+    ===================================================== */
+
+    .violence-heading {
+      max-width:
+        850px;
+
+      margin:
+        0 auto 48px;
+
+      text-align:
+        center;
+    }
+
+
+    .violence-eyebrow {
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 14px;
+
+      margin-bottom:
+        10px;
+
+      color:
+        #0a9697;
+
+      font-size:
+        13px;
+
+      font-weight:
+        800;
+
+      letter-spacing:
+        .06em;
+
+      text-transform:
+        uppercase;
+    }
+
+
+    .violence-eyebrow span {
+      width:
+        42px;
+
+      height:
+        2px;
+
+      border-radius:
+        10px;
+
+      background:
+        #0fa3a3;
+    }
+
+
+    .violence-heading h2 {
+      margin:
+        0 0 14px;
+
+      color:
+        #081a4b;
+
+      font-size:
+        clamp(34px, 4vw, 52px);
+
+      font-weight:
+        800;
+
+      line-height:
+        1.12;
+    }
+
+
+    .violence-heading > p {
+      max-width:
+        720px;
+
+      margin:
+        0 auto;
+
+      color:
+        #64788e;
+
+      font-size:
+        16px;
+
+      line-height:
+        1.7;
+    }
+
+
+    .violence-subtext {
+      margin-top:
+        5px !important;
+
+      color:
+        #7b8d9e !important;
+
+      font-size:
+        14px !important;
+    }
+
+
+
+    /* =====================================================
+       5 CARD GRID
+    ===================================================== */
+
+    .violence-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+      gap:
+        18px;
+
+      align-items:
+        start;
+    }
+
+
+
+    /* =====================================================
+       CARD
+    ===================================================== */
+
+    .violence-card {
+      position: relative;
+
+      display: block;
+
+      min-width: 0;
+
+      overflow: hidden;
+
+      border:
+        1px solid #d4e8eb;
+
+      border-radius:
+        24px;
+
+      background:
+        #ffffff;
+
+      text-decoration:
+        none;
+
+      box-shadow:
+        0 12px 30px
+        rgba(18, 53, 91, .07);
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+    }
+
+
+    .violence-card:hover {
+      transform:
+        translateY(-7px);
+
+      border-color:
+        rgba(15, 163, 163, .48);
+
+      box-shadow:
+        0 20px 42px
+        rgba(18, 53, 91, .13);
+    }
+
+
+
+    /* =====================================================
+       IMAGE
+       Không ép height.
+       Giữ đúng tỷ lệ file ảnh gốc.
+    ===================================================== */
+
+    .violence-image {
+      display: block;
+
+      width: 100%;
+      height: auto;
+
+      transition:
+        transform .3s ease;
+    }
+
+
+    .violence-card:hover
+    .violence-image {
+      transform:
+        scale(1.015);
+    }
+
+
+
+    /* =====================================================
+       BOTTOM ACTION
+    ===================================================== */
+
+    .violence-action {
+      margin-top:
+        40px;
+
+      text-align:
+        center;
+    }
+
+
+    .violence-more {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      min-height:
+        48px;
+
+      padding:
+        0 24px;
+
+      border:
+        2px solid #0fa3a3;
+
+      border-radius:
+        999px;
+
+      background:
+        #ffffff;
+
+      color:
+        #078d89;
+
+      text-decoration:
+        none;
+
+      font-size:
+        15px;
+
+      font-weight:
+        800;
+
+      box-shadow:
+        0 7px 18px
+        rgba(15, 163, 163, .08);
+
+      transition:
+        transform .2s ease,
+        background .2s ease,
+        color .2s ease,
+        box-shadow .2s ease;
+    }
+
+
+    .violence-more:hover {
+      transform:
+        translateY(-2px);
+
+      color:
+        #ffffff;
+
+      background:
+        #0fa3a3;
+
+      box-shadow:
+        0 10px 24px
+        rgba(15, 163, 163, .18);
+    }
+
+
+    .violence-arrow {
+      display: inline-block;
+
+      transition:
+        transform .2s ease;
+    }
+
+
+    .violence-more:hover
+    .violence-arrow {
+      transform:
+        translateX(4px);
+    }
+
+
+
+    /* =====================================================
+       LARGE TABLET
+       5 cards -> 3 + 2 centered
+    ===================================================== */
+
+    @media (max-width: 1150px) {
+
+      .violence-grid {
+        grid-template-columns:
+          repeat(6, 1fr);
+
+        gap:
+          20px;
+      }
+
+
+      .violence-card {
+        grid-column:
+          span 2;
+      }
+
+
+      /* Card 4 */
+      .violence-card:nth-child(4) {
+        grid-column:
+          2 / span 2;
+      }
+
+
+      /* Card 5 */
+      .violence-card:nth-child(5) {
+        grid-column:
+          4 / span 2;
+      }
+
+    }
+
+
+
+    /* =====================================================
+       TABLET
+       1 card mỗi hàng, dạng ngang
+    ===================================================== */
+
+    @media (max-width: 800px) {
+
+      .violence-section {
+        padding:
+          70px 0 76px;
+      }
+
+
+      .violence-grid {
+        display: flex;
+
+        flex-direction:
+          column;
+
+        gap:
+          20px;
+      }
+
+
+      .violence-card {
+        width:
+          min(520px, 100%);
+
+        margin:
+          0 auto;
+      }
+
+    }
+
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 520px) {
+
+      .violence-section {
+        padding:
+          58px 0 64px;
+      }
+
+
+      .violence-container {
+        width:
+          92%;
+      }
+
+
+      .violence-heading {
+        margin-bottom:
+          32px;
+      }
+
+
+      .violence-heading h2 {
+        font-size:
+          32px;
+      }
+
+
+      .violence-heading > p {
+        font-size:
+          15px;
+      }
+
+
+      .violence-grid {
+        gap:
+          18px;
+      }
+
+
+      .violence-card {
+        max-width:
+          330px;
+      }
+
+
+      .violence-action {
+        margin-top:
+          32px;
+      }
+
+
+      .violence-more {
+        width:
+          100%;
+
+        max-width:
+          310px;
+
+        justify-content:
+          center;
+
+        font-size:
+          14px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+
+<body>
+
+
+  <!-- =====================================================
+       SECTION 4
+       SCHOOL VIOLENCE CAN TAKE MANY FORMS
+  ====================================================== -->
+
+  <section class="violence-section">
+
+
+    <div class="violence-container">
+
+
+      <!-- HEADING -->
+
+      <div class="violence-heading">
+
+
+        <div class="violence-eyebrow">
+
+          <span></span>
+
+          RECOGNIZE SCHOOL VIOLENCE
+
+          <span></span>
+
+        </div>
+
+
+        <h2>
+          School violence can take many forms.
+        </h2>
+
+
+        <p>
+          School violence is not only physical.
+          It can happen in different ways,
+          and some forms may be harder to recognize.
+        </p>
+
+
+        <p class="violence-subtext">
+          Recognizing the signs is an important
+          first step toward finding support.
+        </p>
+
+
+      </div>
+
+
+
+      <!-- =================================================
+           FIVE CARDS
+      ================================================== -->
+
+      <div class="violence-grid">
+
+
+        <!-- 1. PHYSICAL VIOLENCE -->
+
+        <a
+          href="YOUR-GOOGLE-SITES-RECOGNIZE-URL"
+          target="_top"
+          class="violence-card"
+          aria-label="Learn about Physical Violence"
+        >
+
+          <img
+            src="../../images/5.png"
+            alt="Physical Violence"
+            class="violence-image"
+          >
+
+        </a>
+
+
+
+        <!-- 2. PSYCHOLOGICAL VIOLENCE -->
+
+        <a
+          href="YOUR-GOOGLE-SITES-RECOGNIZE-URL"
+          target="_top"
+          class="violence-card"
+          aria-label="Learn about Psychological Violence"
+        >
+
+          <img
+            src="../../images/6.png"
+            alt="Psychological Violence"
+            class="violence-image"
+          >
+
+        </a>
+
+
+
+        <!-- 3. SEXUAL VIOLENCE -->
+
+        <a
+          href="YOUR-GOOGLE-SITES-RECOGNIZE-URL"
+          target="_top"
+          class="violence-card"
+          aria-label="Learn about Sexual Violence"
+        >
+
+          <img
+            src="../../images/7.png"
+            alt="Sexual Violence"
+            class="violence-image"
+          >
+
+        </a>
+
+
+
+        <!-- 4. BULLYING -->
+
+        <a
+          href="YOUR-GOOGLE-SITES-RECOGNIZE-URL"
+          target="_top"
+          class="violence-card"
+          aria-label="Learn about Bullying"
+        >
+
+          <img
+            src="../../images/8.png"
+            alt="Bullying"
+            class="violence-image"
+          >
+
+        </a>
+
+
+
+        <!-- 5. CYBERBULLYING -->
+
+        <a
+          href="YOUR-GOOGLE-SITES-RECOGNIZE-URL"
+          target="_top"
+          class="violence-card"
+          aria-label="Learn about Cyberbullying"
+        >
+
+          <img
+            src="../../images/9.png"
+            alt="Cyberbullying"
+            class="violence-image"
+          >
+
+        </a>
+
+
+      </div>
+
+
+
+      <!-- =================================================
+           BOTTOM BUTTON
+      ================================================== -->
+
+      <div class="violence-action">
+
+
+        <a
+          href="YOUR-GOOGLE-SITES-RECOGNIZE-URL"
+          target="_top"
+          class="violence-more"
+        >
+
+          Learn more about the signs
+
+          <span class="violence-arrow">
+            →
+          </span>
+
+        </a>
+
+
+      </div>
+
+
+    </div>
+
+
+  </section>
+
+
+</body>
+
+</html>
