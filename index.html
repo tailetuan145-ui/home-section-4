@@ -1,783 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>
-    SAFE SCHOOL - Recognize School Violence
-  </title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAFE SCHOOL - Section 4</title>
 
   <style>
-
-    /* =====================================================
-       RESET
-    ===================================================== */
-
     * {
       box-sizing: border-box;
     }
 
-
-    html,
     body {
       margin: 0;
-      padding: 0;
-
-      width: 100%;
-
-      overflow-x: hidden;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-      background:
-        #ffffff;
-
-      color:
-        #10233f;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f8fcfc;
+      color: #10233f;
     }
 
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-
-    a {
-      color: inherit;
-    }
-
-
-
-    /* =====================================================
-       SECTION 4
-    ===================================================== */
-
-    .violence-section {
+    .section4 {
       position: relative;
-
-      width: 100%;
-
-      padding:
-        86px 0 92px;
-
+      padding: 70px 0 85px;
+      background: linear-gradient(180deg, #eef8fa 0%, #f8fcfc 100%);
       overflow: hidden;
-
-      background:
-        linear-gradient(
-          180deg,
-          #eef9fb 0%,
-          #f7fcfd 72%,
-          #ffffff 100%
-        );
     }
 
-
-
-    /* decorative soft circles */
-
-    .violence-section::before {
+    .section4::before {
       content: "";
-
       position: absolute;
-
-      width: 260px;
-      height: 260px;
-
-      left: -120px;
-      top: 90px;
-
+      top: -80px;
+      left: -80px;
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
-
-      background:
-        rgba(15, 163, 163, .08);
-
-      pointer-events: none;
+      background: rgba(15, 163, 163, 0.06);
     }
 
-
-    .violence-section::after {
+    .section4::after {
       content: "";
-
       position: absolute;
-
+      bottom: -100px;
+      right: -80px;
       width: 240px;
       height: 240px;
-
-      right: -120px;
-      bottom: 30px;
-
       border-radius: 50%;
-
-      background:
-        rgba(126, 214, 194, .10);
-
-      pointer-events: none;
+      background: rgba(15, 163, 163, 0.05);
     }
 
-
-
-    /* =====================================================
-       CONTAINER
-    ===================================================== */
-
-    .violence-container {
+    .section4 .container {
+      width: min(1400px, 94%);
+      margin: 0 auto;
       position: relative;
-
       z-index: 2;
-
-      width:
-        min(1450px, 93%);
-
-      margin:
-        0 auto;
     }
 
-
-
-    /* =====================================================
-       HEADING
-    ===================================================== */
-
-    .violence-heading {
-      max-width:
-        850px;
-
-      margin:
-        0 auto 48px;
-
-      text-align:
-        center;
+    .section-heading {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 44px;
     }
 
-
-    .violence-eyebrow {
-      display: flex;
-
+    .eyebrow {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-
-      gap: 14px;
-
-      margin-bottom:
-        10px;
-
-      color:
-        #0a9697;
-
-      font-size:
-        13px;
-
-      font-weight:
-        800;
-
-      letter-spacing:
-        .06em;
-
-      text-transform:
-        uppercase;
+      gap: 12px;
+      margin-bottom: 12px;
+      color: #0a9697;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
 
-
-    .violence-eyebrow span {
-      width:
-        42px;
-
-      height:
-        2px;
-
-      border-radius:
-        10px;
-
-      background:
-        #0fa3a3;
+    .eyebrow::before,
+    .eyebrow::after {
+      content: "";
+      width: 42px;
+      height: 2px;
+      background: #0fa3a3;
+      border-radius: 999px;
     }
 
-
-    .violence-heading h2 {
-      margin:
-        0 0 14px;
-
-      color:
-        #081a4b;
-
-      font-size:
-        clamp(34px, 4vw, 52px);
-
-      font-weight:
-        800;
-
-      line-height:
-        1.12;
+    .section-heading h2 {
+      margin: 0 0 14px;
+      color: #081a4b;
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.15;
+      font-weight: 800;
     }
 
-
-    .violence-heading > p {
-      max-width:
-        720px;
-
-      margin:
-        0 auto;
-
-      color:
-        #64788e;
-
-      font-size:
-        16px;
-
-      line-height:
-        1.7;
+    .section-heading p {
+      margin: 0 auto;
+      max-width: 760px;
+      color: #6c7f96;
+      font-size: 16px;
+      line-height: 1.7;
     }
 
-
-    .violence-subtext {
-      margin-top:
-        5px !important;
-
-      color:
-        #7b8d9e !important;
-
-      font-size:
-        14px !important;
-    }
-
-
-
-    /* =====================================================
-       5 CARD GRID
-    ===================================================== */
-
+    /* GRID */
     .violence-grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(5, minmax(0, 1fr));
-
-      gap:
-        18px;
-
-      align-items:
-        start;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 22px;
+      align-items: stretch;
     }
 
-
-
-    /* =====================================================
-       CARD
-    ===================================================== */
-
+    /* CARD */
     .violence-card {
-      position: relative;
-
-      display: block;
-
-      min-width: 0;
-
+      background: #ffffff;
+      border: 1px solid #cfe5e8;
+      border-radius: 26px;
       overflow: hidden;
-
-      border:
-        1px solid #d4e8eb;
-
-      border-radius:
-        24px;
-
-      background:
-        #ffffff;
-
-      text-decoration:
-        none;
-
-      box-shadow:
-        0 12px 30px
-        rgba(18, 53, 91, .07);
-
-      transition:
-        transform .25s ease,
-        box-shadow .25s ease,
-        border-color .25s ease;
+      box-shadow: 0 12px 28px rgba(16, 35, 63, 0.06);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
     }
-
 
     .violence-card:hover {
-      transform:
-        translateY(-7px);
-
-      border-color:
-        rgba(15, 163, 163, .48);
-
-      box-shadow:
-        0 20px 42px
-        rgba(18, 53, 91, .13);
+      transform: translateY(-6px);
+      border-color: rgba(15, 163, 163, 0.45);
+      box-shadow: 0 16px 34px rgba(16, 35, 63, 0.12);
     }
 
-
-
-    /* =====================================================
-       IMAGE
-       Không ép height.
-       Giữ đúng tỷ lệ file ảnh gốc.
-    ===================================================== */
-
-    .violence-image {
-      display: block;
-
+    /* ẢNH CÙNG TỶ LỆ */
+    .violence-image-wrap {
       width: 100%;
-      height: auto;
-
-      transition:
-        transform .3s ease;
+      aspect-ratio: 1 / 1.28;
+      overflow: hidden;
+      background: #f3f8f9;
+      flex-shrink: 0;
     }
 
-
-    .violence-card:hover
-    .violence-image {
-      transform:
-        scale(1.015);
+    .violence-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-
-
-    /* =====================================================
-       BOTTOM ACTION
-    ===================================================== */
-
-    .violence-action {
-      margin-top:
-        40px;
-
-      text-align:
-        center;
+    /* CONTENT */
+    .violence-content {
+      padding: 22px 20px 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
     }
 
-
-    .violence-more {
-      display: inline-flex;
-
+    .violence-content h3 {
+      margin: 0 0 14px;
+      color: #0a2453;
+      font-size: 17px;
+      line-height: 1.35;
+      font-weight: 800;
+      min-height: 46px;
+      display: flex;
       align-items: center;
+      justify-content: center;
+    }
 
+    .violence-content p {
+      margin: 0;
+      color: #667b92;
+      font-size: 15px;
+      line-height: 1.7;
+      flex-grow: 1;
+    }
+
+    .section-action {
+      text-align: center;
+      margin-top: 38px;
+    }
+
+    .learn-more-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       gap: 8px;
-
-      min-height:
-        48px;
-
-      padding:
-        0 24px;
-
-      border:
-        2px solid #0fa3a3;
-
-      border-radius:
-        999px;
-
-      background:
-        #ffffff;
-
-      color:
-        #078d89;
-
-      text-decoration:
-        none;
-
-      font-size:
-        15px;
-
-      font-weight:
-        800;
-
-      box-shadow:
-        0 7px 18px
-        rgba(15, 163, 163, .08);
-
-      transition:
-        transform .2s ease,
-        background .2s ease,
-        color .2s ease,
-        box-shadow .2s ease;
+      min-height: 50px;
+      padding: 0 28px;
+      border-radius: 999px;
+      border: 2px solid #0fa3a3;
+      background: #ffffff;
+      color: #078d89;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 800;
+      transition: all .2s ease;
     }
 
-
-    .violence-more:hover {
-      transform:
-        translateY(-2px);
-
-      color:
-        #ffffff;
-
-      background:
-        #0fa3a3;
-
-      box-shadow:
-        0 10px 24px
-        rgba(15, 163, 163, .18);
+    .learn-more-btn:hover {
+      background: #0fa3a3;
+      color: #ffffff;
+      transform: translateY(-2px);
     }
 
-
-    .violence-arrow {
-      display: inline-block;
-
-      transition:
-        transform .2s ease;
+    /* RESPONSIVE */
+    @media (max-width: 1300px) {
+      .violence-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
     }
 
-
-    .violence-more:hover
-    .violence-arrow {
-      transform:
-        translateX(4px);
+    @media (max-width: 900px) {
+      .violence-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
+    @media (max-width: 560px) {
+      .section4 {
+        padding: 56px 0 70px;
+      }
 
+      .section-heading {
+        margin-bottom: 30px;
+      }
 
-    /* =====================================================
-       LARGE TABLET
-       5 cards -> 3 + 2 centered
-    ===================================================== */
-
-    @media (max-width: 1150px) {
+      .section-heading p {
+        font-size: 15px;
+      }
 
       .violence-grid {
-        grid-template-columns:
-          repeat(6, 1fr);
-
-        gap:
-          20px;
+        grid-template-columns: 1fr;
+        gap: 18px;
       }
-
 
       .violence-card {
-        grid-column:
-          span 2;
+        max-width: 360px;
+        margin: 0 auto;
       }
 
-
-      /* Card 4 */
-      .violence-card:nth-child(4) {
-        grid-column:
-          2 / span 2;
+      .violence-content h3 {
+        min-height: auto;
+        font-size: 20px;
       }
-
-
-      /* Card 5 */
-      .violence-card:nth-child(5) {
-        grid-column:
-          4 / span 2;
-      }
-
     }
-
-
-
-    /* =====================================================
-       TABLET
-       1 card mỗi hàng, dạng ngang
-    ===================================================== */
-
-    @media (max-width: 800px) {
-
-      .violence-section {
-        padding:
-          70px 0 76px;
-      }
-
-
-      .violence-grid {
-        display: flex;
-
-        flex-direction:
-          column;
-
-        gap:
-          20px;
-      }
-
-
-      .violence-card {
-        width:
-          min(520px, 100%);
-
-        margin:
-          0 auto;
-      }
-
-    }
-
-
-
-    /* =====================================================
-       MOBILE
-    ===================================================== */
-
-    @media (max-width: 520px) {
-
-      .violence-section {
-        padding:
-          58px 0 64px;
-      }
-
-
-      .violence-container {
-        width:
-          92%;
-      }
-
-
-      .violence-heading {
-        margin-bottom:
-          32px;
-      }
-
-
-      .violence-heading h2 {
-        font-size:
-          32px;
-      }
-
-
-      .violence-heading > p {
-        font-size:
-          15px;
-      }
-
-
-      .violence-grid {
-        gap:
-          18px;
-      }
-
-
-      .violence-card {
-        max-width:
-          330px;
-      }
-
-
-      .violence-action {
-        margin-top:
-          32px;
-      }
-
-
-      .violence-more {
-        width:
-          100%;
-
-        max-width:
-          310px;
-
-        justify-content:
-          center;
-
-        font-size:
-          14px;
-      }
-
-    }
-
   </style>
-
 </head>
-
-
-
 <body>
 
+  <section class="section4">
+    <div class="container">
 
-  <!-- =====================================================
-       SECTION 4
-       SCHOOL VIOLENCE CAN TAKE MANY FORMS
-  ====================================================== -->
-
-  <section class="violence-section">
-
-
-    <div class="violence-container">
-
-
-      <!-- HEADING -->
-
-      <div class="violence-heading">
-
-
-        <div class="violence-eyebrow">
-
-          <span></span>
-
-          RECOGNIZE SCHOOL VIOLENCE
-
-          <span></span>
-
-        </div>
-
-
-        <h2>
-          School violence can take many forms.
-        </h2>
-
-
+      <div class="section-heading">
+        <div class="eyebrow">Recognize school violence</div>
+        <h2>School violence can take many forms.</h2>
         <p>
-          School violence is not only physical.
-          It can happen in different ways,
-          and some forms may be harder to recognize.
+          School violence is not always easy to recognize.
+          It may appear physically, emotionally, socially, sexually,
+          or through online spaces.
         </p>
-
-
-        <p class="violence-subtext">
-          Recognizing the signs is an important
-          first step toward finding support.
-        </p>
-
-
       </div>
-
-
-
-      <!-- =================================================
-           FIVE CARDS
-      ================================================== -->
 
       <div class="violence-grid">
 
+        <!-- CARD 1 -->
+        <div class="violence-card">
+          <div class="violence-image-wrap">
+            <img src="4.png" alt="Physical Violence">
+          </div>
+          <div class="violence-content">
+            <h3>Physical Violence</h3>
+            <p>
+              Hitting, kicking, pushing, fighting, or intentionally causing physical injury.
+            </p>
+          </div>
+        </div>
 
-        <!-- 1. PHYSICAL VIOLENCE -->
+        <!-- CARD 2 -->
+        <div class="violence-card">
+          <div class="violence-image-wrap">
+            <img src="5.png" alt="Psychological Violence">
+          </div>
+          <div class="violence-content">
+            <h3>Psychological Violence</h3>
+            <p>
+              Threatening, humiliating, isolating, spreading rumors, or causing emotional distress.
+            </p>
+          </div>
+        </div>
 
-        <a
-          href="YOUR-GOOGLE-SITES-RECOGNIZE-URL"
-          target="_top"
-          class="violence-card"
-          aria-label="Learn about Physical Violence"
-        >
+        <!-- CARD 3 -->
+        <div class="violence-card">
+          <div class="violence-image-wrap">
+            <img src="6.png" alt="Sexual Violence">
+          </div>
+          <div class="violence-content">
+            <h3>Sexual Violence</h3>
+            <p>
+              Unwanted sexual behavior that violates someone’s boundaries, dignity, or safety.
+            </p>
+          </div>
+        </div>
 
-          <img
-            src="4.png"
-            alt="Physical Violence"
-            class="violence-image"
-          >
+        <!-- CARD 4 -->
+        <div class="violence-card">
+          <div class="violence-image-wrap">
+            <img src="7.png" alt="Bullying">
+          </div>
+          <div class="violence-content">
+            <h3>Bullying</h3>
+            <p>
+              Repeated harmful behavior, especially when there is an imbalance of power.
+            </p>
+          </div>
+        </div>
 
-        </a>
-
-
-
-        <!-- 2. PSYCHOLOGICAL VIOLENCE -->
-
-        <a
-          href="YOUR-GOOGLE-SITES-RECOGNIZE-URL"
-          target="_top"
-          class="violence-card"
-          aria-label="Learn about Psychological Violence"
-        >
-
-          <img
-            src="5.png"
-            alt="Psychological Violence"
-            class="violence-image"
-          >
-
-        </a>
-
-
-
-        <!-- 3. SEXUAL VIOLENCE -->
-
-        <a
-          href="YOUR-GOOGLE-SITES-RECOGNIZE-URL"
-          target="_top"
-          class="violence-card"
-          aria-label="Learn about Sexual Violence"
-        >
-
-          <img
-            src="6.png"
-            alt="Sexual Violence"
-            class="violence-image"
-          >
-
-        </a>
-
-
-
-        <!-- 4. BULLYING -->
-
-        <a
-          href="YOUR-GOOGLE-SITES-RECOGNIZE-URL"
-          target="_top"
-          class="violence-card"
-          aria-label="Learn about Bullying"
-        >
-
-          <img
-            src="7.png"
-            alt="Bullying"
-            class="violence-image"
-          >
-
-        </a>
-
-
-
-        <!-- 5. CYBERBULLYING -->
-
-        <a
-          href="YOUR-GOOGLE-SITES-RECOGNIZE-URL"
-          target="_top"
-          class="violence-card"
-          aria-label="Learn about Cyberbullying"
-        >
-
-          <img
-            src="../../images/9.png"
-            alt="Cyberbullying"
-            class="violence-image"
-          >
-
-        </a>
-
+        <!-- CARD 5 -->
+        <div class="violence-card">
+          <div class="violence-image-wrap">
+            <img src="8.png" alt="Cyberbullying">
+          </div>
+          <div class="violence-content">
+            <h3>Cyberbullying</h3>
+            <p>
+              Using messages, images, social media, or online platforms to harass, threaten, or shame someone.
+            </p>
+          </div>
+        </div>
 
       </div>
 
-
-
-      <!-- =================================================
-           BOTTOM BUTTON
-      ================================================== -->
-
-      <div class="violence-action">
-
-
-        <a
-          href="YOUR-GOOGLE-SITES-RECOGNIZE-URL"
-          target="_top"
-          class="violence-more"
-        >
-
-          Learn more about the signs
-
-          <span class="violence-arrow">
-            →
-          </span>
-
+      <div class="section-action">
+        <a href="YOUR-GOOGLE-SITES-RECOGNIZE-URL" target="_top" class="learn-more-btn">
+          Learn more about the signs →
         </a>
-
-
       </div>
-
 
     </div>
-
-
   </section>
 
-
 </body>
-
 </html>
